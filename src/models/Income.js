@@ -47,14 +47,14 @@ const Income = sequelize.define(
 
     payementModeId:{
         type: DataTypes.UUID,
-      allowNull: false,
-      field: 'payment_mode_id',
-      references: {
-        model: PaymentMode,
-        key: 'PaymentModeId',
-      },
-      onDelete: 'SET NULL',//set PaymentModeId null when parent is deleted
-      onUpdate: 'CASCADE',
+        allowNull: false,
+        field: 'payment_mode_id',
+        references: {
+            model: PaymentMode,
+            key: 'PaymentModeId',
+        },
+        onDelete: 'SET NULL',//set PaymentModeId null when parent is deleted
+        onUpdate: 'CASCADE',
 
     },
 
@@ -81,7 +81,7 @@ const Income = sequelize.define(
     tableName: 'incomes',
     timestamps: true, // createdAt, updatedAt
   }
-  
+
 );
 
 // Relationships
@@ -90,5 +90,8 @@ Income.belongsTo(User, { foreignKey: 'userId' });
 
 UserIncomeCategory.hasMany(Income, { foreignKey: 'categoryId' });
 Income.belongsTo(UserIncomeCategory, { foreignKey: 'categoryId' });
+
+PaymentMode.hasMany(Income,{foreignKey:'paymentModeId'});
+Income.belongsTo(PaymentMode,{foreignKey:'paymetModeId'});
 
 module.exports = Income;

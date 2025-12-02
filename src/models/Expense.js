@@ -51,7 +51,7 @@ const Expense = sequelize.define(
         field: 'payment_mode_id',
         references: {
             model: PaymentMode,
-            key: 'PaymentModeId',
+            key: 'paymentModeId',
         },
         onDelete: 'SET NULL',//set PaymentModeId null when parent is deleted
         onUpdate: 'CASCADE',

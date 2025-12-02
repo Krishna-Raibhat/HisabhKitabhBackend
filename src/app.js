@@ -3,6 +3,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const sequelize = require('./config/database');
 const authRoutes = require('./routes/authRoutes');
+const balanceRoutes = require('./routes/balanceRoutes');
 
 dotenv.config();
 const app = express();
@@ -19,6 +20,7 @@ app.use(express.json());
 
     // Make sure models are loaded before sync
     require('./models/User');
+    require('./models/Balance');
 
     await sequelize.sync(); // or { alter: true } during development
     console.log('Database synced.');
@@ -29,6 +31,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/balance', balanceRoutes);
 
 // Test route
 app.get('/', (req, res) => {

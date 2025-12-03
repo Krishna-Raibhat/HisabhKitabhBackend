@@ -92,7 +92,7 @@ UserExpenseCategory.hasMany(Expense, { foreignKey: 'categoryId' });
 Expense.belongsTo(UserExpenseCategory, { foreignKey: 'categoryId' });
 
 PaymentMode.hasMany(Expense,{foreignKey:'paymentModeId'});
-Expense.belongsTo(PaymentMode,{foreignKey:'paymetModeId'});
+Expense.belongsTo(PaymentMode,{foreignKey:'paymentModeId'});
 
 
 module.exports = Expense;

@@ -18,7 +18,7 @@ const IncomeItem = sequelize.define(
       field: 'income_id',
       references:{
         model:Income,
-        key:'incomeId'
+        key:'income_id'
       },
       onDelete:'CASCADE',
       onUpdate:'CASCADE',
@@ -55,8 +55,8 @@ const IncomeItem = sequelize.define(
 );
 
 //relationships
-Income.hasMany(IncomeItem,{foreignKey:'incomeId'});
-IncomeItem.belongsTo(Income,{foreignKey:'incomeId'});
+Income.hasMany(IncomeItem,{foreignKey:'income_id'});
+IncomeItem.belongsTo(Income,{foreignKey:'income_id'});
 
 
 module.exports = IncomeItem;

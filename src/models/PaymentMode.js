@@ -17,7 +17,7 @@ const PaymentMode = sequelize.define(
       field: 'user_id',
       references: {
         model: User,
-        key: 'userId',
+        key: 'user_id',
       },
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE',
@@ -41,7 +41,7 @@ const PaymentMode = sequelize.define(
 );
 
 // relationships
-User.hasMany(PaymentMode, { foreignKey: 'userId' });
-PaymentMode.belongsTo(User, { foreignKey: 'userId' });
+User.hasMany(PaymentMode, { foreignKey: 'user_id' });
+PaymentMode.belongsTo(User, { foreignKey: 'user_id' });
 
 module.exports = PaymentMode;

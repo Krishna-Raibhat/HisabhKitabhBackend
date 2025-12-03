@@ -18,7 +18,7 @@ const ExpenseItem = sequelize.define(
       field: 'expense_id',
       references:{
         model:Expense,
-        key:'expenseId'
+        key:'expense_id'
       },
       onDelete:'CASCADE',
       onUpdate:'CASCADE',
@@ -55,8 +55,8 @@ const ExpenseItem = sequelize.define(
 );
 
 //relationships
-Expense.hasMany(ExpenseItem,{foreignKey:'expenseId'});
-ExpenseItem.belongsTo(Expense,{foreignKey:'expenseId'});
+Expense.hasMany(ExpenseItem,{foreignKey:'expense_id'});
+ExpenseItem.belongsTo(Expense,{foreignKey:'expense_id'});
 
 
 module.exports = ExpenseItem;

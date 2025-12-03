@@ -20,7 +20,7 @@ const UserPartyBalance = sequelize.define(
       field: "user_id",
       references: {
         model: User,
-        key: "userId",
+        key: "user_id",
       },
       onDelete: "CASCADE",
       onUpdate: "CASCADE",
@@ -33,7 +33,7 @@ const UserPartyBalance = sequelize.define(
       field: "party_id",
       references: {
         model: Party,
-        key: "partyId",
+        key: "party_id",
       },
       onDelete: "SET NULL",
       onUpdate: "CASCADE",
@@ -54,10 +54,10 @@ const UserPartyBalance = sequelize.define(
 );
 
 //associations
-User.hasMany(UserPartyBalance, { foreignKey: "userId" });
-UserPartyBalance.belongsTo(User, { foreignKey: "userId" });
+User.hasMany(UserPartyBalance, { foreignKey: "user_id" });
+UserPartyBalance.belongsTo(User, { foreignKey: "user_id" });
 
-Party.hasMany(UserPartyBalance, { foreignKey: "partyId" });
-UserPartyBalance.belongsTo(Party, { foreignKey: "partyId" });
+Party.hasMany(UserPartyBalance, { foreignKey: "party_id" });
+UserPartyBalance.belongsTo(Party, { foreignKey: "party_id" });
 
 module.exports = UserPartyBalance;

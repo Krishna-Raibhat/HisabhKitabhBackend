@@ -18,7 +18,7 @@ const Balance = sequelize.define(
       field: 'user_id',
       references: {
         model: User,
-        key: 'userId',
+        key: 'user_Id',
       },
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE',
@@ -37,7 +37,7 @@ const Balance = sequelize.define(
 );
 
 // associations
-User.hasOne(Balance, { foreignKey: 'userId' }); //one to one relation
-Balance.belongsTo(User, { foreignKey: 'userId' });
+User.hasOne(Balance, { foreignKey: 'user_id' }); //one to one relation
+Balance.belongsTo(User, { foreignKey: 'user_id' });
 
 module.exports = Balance;

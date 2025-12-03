@@ -18,7 +18,7 @@ const Party = sequelize.define(
       field: 'user_id',
       references: {
         model: User,
-        key: 'userId',
+        key: 'user_id',
       },
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE',
@@ -45,9 +45,9 @@ const Party = sequelize.define(
 
 // relationships
 
-User.hasMany(Party, { foreignKey: 'userId' });// one User can have many Parties (1:N)
+User.hasMany(Party, { foreignKey: 'user_id' });// one User can have many Parties (1:N)
 
 
-Party.belongsTo(User, { foreignKey: 'userId' });// Each Party belongs to one User
+Party.belongsTo(User, { foreignKey: 'user_id' });// Each Party belongs to one User
 
 module.exports = Party;

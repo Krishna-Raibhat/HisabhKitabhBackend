@@ -39,7 +39,7 @@ const Income = sequelize.define(
       field: 'category_id',
       references: {
         model: UserIncomeCategory,
-        key: 'userIncomeCategoryId',
+        key: 'user_income_category_id',
       },
       onDelete: 'SET NULL',
       onUpdate: 'CASCADE',
@@ -51,7 +51,7 @@ const Income = sequelize.define(
         field: 'payment_mode_id',
         references: {
             model: PaymentMode,
-            key: 'paymentModeId',
+            key: 'payment_mode_id',
         },
         onDelete: 'SET NULL',//set PaymentModeId null when parent is deleted
         onUpdate: 'CASCADE',
@@ -85,13 +85,13 @@ const Income = sequelize.define(
 );
 
 // Relationships
-User.hasMany(Income, { foreignKey: 'userId' });
-Income.belongsTo(User, { foreignKey: 'userId' });
+User.hasMany(Income, { foreignKey: 'user_id' });
+Income.belongsTo(User, { foreignKey: 'user_id' });
 
-UserIncomeCategory.hasMany(Income, { foreignKey: 'categoryId' });
-Income.belongsTo(UserIncomeCategory, { foreignKey: 'categoryId' });
+UserIncomeCategory.hasMany(Income, { foreignKey: 'user_income_category_id' });
+Income.belongsTo(UserIncomeCategory, { foreignKey: 'user_income_category_id' });
 
-PaymentMode.hasMany(Income,{foreignKey:'paymentModeId'});
-Income.belongsTo(PaymentMode,{foreignKey:'paymentModeId'});
+PaymentMode.hasMany(Income,{foreignKey:'payment_mode_id'});
+Income.belongsTo(PaymentMode,{foreignKey:'payment_mode_id'});
 
 module.exports = Income;

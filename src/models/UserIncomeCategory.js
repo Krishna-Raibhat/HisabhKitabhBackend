@@ -42,7 +42,7 @@ const UserIncomeCategory = sequelize.define(
 );
 
 // relationships
-User.hasMany(UserIncomeCategory, { foreignKey: 'userId' });
-UserIncomeCategory.belongsTo(User, { foreignKey: 'userId' });
+User.hasMany(UserIncomeCategory, { foreignKey: 'user_id' });
+UserIncomeCategory.belongsTo(User, { foreignKey: 'user_id' });
 
 module.exports = UserIncomeCategory;

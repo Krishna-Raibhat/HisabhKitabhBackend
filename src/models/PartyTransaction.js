@@ -19,7 +19,7 @@ const PartyTransaction = sequelize.define(
       field: "user_id",
       references: {
         model: User,
-        key: "userId",
+        key: "user_id",
       },
       onDelete: "CASCADE",
       onUpdate: "CASCADE",
@@ -32,7 +32,7 @@ const PartyTransaction = sequelize.define(
       field: "party_id",
       references: {
         model: Party,
-        key: "partyId",
+        key: "party_id",
       },
       onDelete: "CASCADE",
       onUpdate: "CASCADE",
@@ -54,10 +54,10 @@ const PartyTransaction = sequelize.define(
 );
 
 //associations
-User.hasMany(PartyTransaction, { foreignKey: "userId" });
-PartyTransaction.belongsTo(User, { foreignKey: "userId" });
+User.hasMany(PartyTransaction, { foreignKey: "user_id" });
+PartyTransaction.belongsTo(User, { foreignKey: "user_id" });
 
-Party.hasMany(PartyTransaction, { foreignKey: "partyId" });
-PartyTransaction.belongsTo(Party, { foreignKey: "partyId" });
+Party.hasMany(PartyTransaction, { foreignKey: "party_id" });
+PartyTransaction.belongsTo(Party, { foreignKey: "party_id" });
 
 module.exports = PartyTransaction;

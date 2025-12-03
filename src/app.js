@@ -25,6 +25,14 @@ app.use(express.json());
     // Make sure models are loaded before sync
     require('./models/User');
     require('./models/Balance');
+    require('./models/UserIncomeCategory');
+    require('./models/UserExpenseCategory');
+    require('./models/PaymentMode');
+    require('./models/Party');
+    require('./models/PartyTransaction');
+    require('./models/UserPartyBalance');
+    require('./models/IncomeItem');
+    require("./models/ExpenseItem")
     require('./models/Income');
     require('./models/Expense');
 

@@ -45,7 +45,7 @@ const Income = sequelize.define(
       onUpdate: 'CASCADE',
     },
 
-    payementModeId:{
+    paymentModeId:{
         type: DataTypes.UUID,
         allowNull: false,
         field: 'payment_mode_id',
